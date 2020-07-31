@@ -582,7 +582,7 @@ async fn run_repl(flags: Flags) -> Result<(), ErrBox> {
   }
 }
 
-async fn run_command(flags: Flags, script: String) -> Result<(), ErrBox> {
+pub async fn run_command(flags: Flags, script: String) -> Result<(), ErrBox> {
   let global_state = GlobalState::new(flags.clone())?;
   let main_module = if script != "-" {
     ModuleSpecifier::resolve_url_or_path(&script).unwrap()
